@@ -17,13 +17,13 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     let gameResult = ""
-    if (playerSelection === "rock" && computerSelection === "scissors") {
+    if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
         gameResult = "You win!";
-    } else if (playerSelection == "paper" && computerSelection == "rock") {
+    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
         gameResult = "You win!";
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
+    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
         gameResult = "You win!";
-    } else if (playerSelection === computerSelection) {
+    } else if (playerSelection.toLowerCase() === computerSelection) {
         gameResult = "It's a draw!"
     } else {
         gameResult = "You lose!"
@@ -35,6 +35,7 @@ function game() {
 
     while (counterPlayer < 5 && counterComputer < 5) {
         const computerSelection = computerPlay();
+        let playerSelection = prompt("What's your move?");
         let result = playRound(playerSelection, computerSelection)
 
         if (result == "You win!") {
@@ -49,7 +50,7 @@ function game() {
     }
 }
 
-const playerSelection = "rock";
+
 let counterPlayer = 0;
 let counterComputer = 0;
 
