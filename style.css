@@ -12,7 +12,7 @@ body {
     justify-content: space-evenly;
     gap: 2em;
     padding-top: 7em;
-    padding-bottom: 2em;
+    margin-bottom: 3em;
 }
 
 button {
@@ -30,16 +30,33 @@ button {
     color: white;
     font-size: 4.5rem;
     text-align: center;
-    margin-bottom: 1em;
 }
 
-#score {
+p {
+    width: fit-content;
+    background-color: #050505;
+    margin: 0;
+    font-size: 2rem;
+    max-width: 80vw;
+}
+
+#score,
+.end-text {
     font-size: 4em;
     color: white;
     background-color: #050505;
+    text-align: center;
+}
+
+.end-text {
+    font-size: 0.75em;
+    /* color: white;
+    text-align: center;
+    background-color: #050505; */
 }
 
 .btns {
+    margin-top: 2em;
     display: flex;
     gap: 1em;
 }
@@ -52,12 +69,4 @@ button {
     flex-direction: column-reverse;
     align-items: center;
     gap: 2rem;
-}
-
-p {
-    width: fit-content;
-    background-color: #050505;
-    margin: 0;
-    font-size: 2rem;
-    max-width: 80vw;
 }
