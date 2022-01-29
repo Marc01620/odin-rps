@@ -17,44 +17,51 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     let gameResult = ""
-    if (playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") {
-        gameResult = "You win!";
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
-        gameResult = "You win!";
-    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
-        gameResult = "You win!";
+    if ((playerSelection.toLowerCase() === "rock" && computerSelection === "scissors") || (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") || (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper")) {
+        gameResult = playerSelection + " beats " + computerSelection + ". You win!";
     } else if (playerSelection.toLowerCase() === computerSelection) {
         gameResult = "It's a draw!"
     } else {
-        gameResult = "You lose!"
+        gameResult = computerSelection + " beats " + playerSelection + ". You lose!";
     }
     return gameResult;
 }
 
 function game() {
 
-    while (counterPlayer < 5 && counterComputer < 5) {
-        const computerSelection = computerPlay();
-        let playerSelection = prompt("What's your move?");
-        let result = playRound(playerSelection, computerSelection)
+    const computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection)
 
-        if (result == "You win!") {
-            counterPlayer++;
-        } else if (result == "You lose!") {
-            counterComputer++;
-        }
-        console.log("I chose " + computerSelection);
-        console.log("You chose " + playerSelection);
-        console.log(result);
-        console.log("The score is " + counterComputer + " - " + counterPlayer)
+    if (result == playerSelection + " beats " + computerSelection + ". You win!") {
+        counterPlayer++;
+    } else if (result == computerSelection + " beats " + playerSelection + ". You lose!") {
+        counterComputer++;
     }
+    const p = document.createElement("p");
+    p.textContent = ("I chose " + computerSelection +
+        ". You chose " + playerSelection.toLowerCase() + ". " +
+        result +
+        ". The score is " + counterComputer + " - " + counterPlayer)
+
+
+    results.appendChild(p)
+
 }
+const results = document.querySelector("#results");
 
 
+const btns = document.querySelectorAll("button");
+btns.forEach((button) => {
+    button.addEventListener("click", () => {
+        playerSelection = button.innerText;
+        game();
+
+    });
+});
+let playerSelection = "";
 let counterPlayer = 0;
 let counterComputer = 0;
 
-game()
 
 if (counterComputer < counterPlayer) {
     console.log("You beat me, congrats!")
