@@ -1,8 +1,14 @@
+@font-face {
+    font-family: pixel;
+    src: url(PressStart2P-vaV7.ttf);
+}
+
 body {
     height: 100vh;
     background-color: #0e0e0e;
     background-image: url(matrix.gif);
     background-size: cover;
+    font-family: pixel, sans-serif;
 }
 
 .top {
@@ -23,12 +29,13 @@ button {
     border: 2px solid rgb(61, 139, 15);
     border-radius: 0.5rem;
     cursor: pointer;
+    font-family: pixel, sans-serif;
 }
 
 .header {
     background-color: #050505;
     color: white;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     text-align: center;
 }
 
@@ -36,13 +43,13 @@ p {
     width: fit-content;
     background-color: #050505;
     margin: 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     max-width: 80vw;
 }
 
 #score,
 .end-text {
-    font-size: 4em;
+    font-size: 2em;
     color: white;
     background-color: #050505;
     text-align: center;
