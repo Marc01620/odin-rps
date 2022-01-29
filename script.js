@@ -40,15 +40,16 @@ function game() {
     const p = document.createElement("p");
     p.textContent = ("I chose " + computerSelection +
         ". You chose " + playerSelection.toLowerCase() + ". " +
-        result +
-        ". The score is " + counterComputer + " - " + counterPlayer)
+        result)
+
 
 
     results.appendChild(p)
+    score.textContent = (counterPlayer + " - " + counterComputer)
 
 }
 const results = document.querySelector("#results");
-
+const score = document.querySelector("#score");
 
 const btns = document.querySelectorAll("button");
 btns.forEach((button) => {
